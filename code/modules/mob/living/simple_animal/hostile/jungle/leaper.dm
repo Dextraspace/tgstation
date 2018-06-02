@@ -10,6 +10,7 @@
 	icon_state = "leaper"
 	icon_living = "leaper"
 	icon_dead = "leaper_dead"
+	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	maxHealth = 300
 	health = 300
 	ranged = TRUE
@@ -19,7 +20,7 @@
 	pixel_x = -16
 	layer = LARGE_MOB_LAYER
 	speed = 10
-	stat_attack = 1
+	stat_attack = UNCONSCIOUS
 	robust_searching = 1
 	var/hopping = FALSE
 	var/hop_cooldown = 0 //Strictly for player controlled leapers
@@ -66,6 +67,7 @@
 	desc = "A small pool of sludge, containing trace amounts of leaper venom."
 	icon = 'icons/effects/tomatodecal.dmi'
 	icon_state = "tomato_floor1"
+	beauty = -200
 
 /obj/structure/leaper_bubble
 	name = "leaper bubble"

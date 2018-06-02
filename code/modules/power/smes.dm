@@ -45,7 +45,7 @@
 		to_chat(user, "<span class='warning'>This SMES has no power terminal!</span>")
 
 /obj/machinery/power/smes/Initialize()
-	..()
+	. = ..()
 	dir_loop:
 		for(var/d in GLOB.cardinals)
 			var/turf/T = get_step(src, d)
@@ -96,10 +96,6 @@
 			return
 		stat &= ~BROKEN
 		update_icon()
-		return
-
-	//exchanging parts using the RPE
-	if(exchange_parts(user, I))
 		return
 
 	//building and linking a terminal
@@ -227,7 +223,7 @@
 
 
 /obj/machinery/power/smes/proc/chargedisplay()
-	return Clamp(round(5.5*charge/capacity),0,5)
+	return CLAMP(round(5.5*charge/capacity),0,5)
 
 /obj/machinery/power/smes/process()
 	if(stat & BROKEN)
@@ -382,7 +378,7 @@
 				target = text2num(target)
 				. = TRUE
 			if(.)
-				input_level = Clamp(target, 0, input_level_max)
+				input_level = CLAMP(target, 0, input_level_max)
 				log_smes(usr.ckey)
 		if("output")
 			var/target = params["target"]
@@ -404,7 +400,7 @@
 				target = text2num(target)
 				. = TRUE
 			if(.)
-				output_level = Clamp(target, 0, output_level_max)
+				output_level = CLAMP(target, 0, output_level_max)
 				log_smes(usr.ckey)
 
 /obj/machinery/power/smes/proc/log_smes(user = "")
